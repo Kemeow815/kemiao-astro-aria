@@ -1,0 +1,345 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import SquareLines from "../components/square-lines.astro";
+
+const title = "喵落阁";
+
+const friends = [
+  {
+    name: "纸鹿摸鱼处",
+    avatar: "https://www.zhilu.cyou/api/avatar.png",
+    desc: "纸鹿至麓不知路，支炉制露不止漉",
+    link: "https://blog.zhilu.cyou/"
+  },
+  {
+    name: "设计之眼",
+    avatar: "https://example.com/avatar2.jpg",
+    desc: "UI/UX设计灵感与案例分享",
+    link: "https://designvision.example"
+  },
+  {
+    name: "开源探索者",
+    avatar: "https://example.com/avatar3.jpg",
+    desc: "追踪开源社区最新动态",
+    link: "https://opensourcexplorer.example"
+  },
+  {
+    name: "数字游民笔记",
+    avatar: "https://example.com/avatar4.jpg",
+    desc: "记录数字游民生活方式与技术实践",
+    link: "https://nomadnotes.example"
+  }
+];
+
+const myFriendInfo = 
+{
+  name: "喵落阁",
+  avatar: "https://cn.cravatar.com/avatar/1F6C8947D35A8186A1647009BA8BC5F2?size=256",
+  link: "https://kemiaosw.top",
+  desc: "或许，这对于我们来说，只是一个选择"
+};
+
+// 修复JSON字符串显示问题（包含最后的}）
+const myFriendInfoStr = JSON.stringify(myFriendInfo, null, 2);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>友链 - {title}</title>
+    
+    <!-- 添加字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Dark mode script -->
+    <script is:inline>
+      if (typeof Storage !== 'undefined') {
+        if (localStorage.getItem('dark_mode') === 'true') {
+          document.documentElement.classList.add('dark')
+        }
+      }
+    </script>
+
+    <style>
+      /* 基础样式 */
+      :root {
+        --primary: #7c3aed;
+        --primary-light: #8b5cf6;
+        --text: #374151;
+        --text-light: #6b7280;
+        --bg: #f9fafb;
+        --card-bg: #ffffff;
+        --border: #e5e7eb;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
+
+      .dark {
+        --primary: #a78bfa;
+        --primary-light: #c4b5fd;
+        --text: #e5e7eb;
+        --text-light: #9ca3af;
+        --bg: #111827;
+        --card-bg: #1f2937;
+        --border: #374151;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      }
+
+      body {
+        font-family: 'Noto Sans SC', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        transition: var(--transition);
+      }
+
+      /* 容器最大宽度控制 */
+      .page-container {
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* 友链卡片样式优化 */
+      .friend-card {
+        display: flex;
+        align-items: center;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        background-color: var(--card-bg);
+        box-shadow: var(--shadow);
+      }
+
+      .friend-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border-color: var(--primary-light);
+      }
+
+      .friend-card img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1.25rem;
+        border: 2px solid var(--border);
+      }
+
+      .friend-card div {
+        flex: 1;
+      }
+
+      .friend-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: var(--text);
+      }
+
+      .friend-card p {
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      /* 自适应网格布局 */
+      .friends-grid {
+        display: grid;
+        gap: 1.75rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      /* 列表样式 */
+      .rule-list {
+        list-style-type: none;
+        padding-left: 0;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .rule-list li {
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 0.85rem;
+        color: var(--text);
+        font-size: 1.1rem;
+      }
+
+      .rule-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      /* 代码块样式 - 已修复对齐问题 */
+      .code-block {
+        font-family: 'Fira Code', monospace;
+        white-space: pre;
+        word-break: normal;
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        margin-top: 0;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        /* 修复左对齐问题 */
+        text-align: left;
+        display: block;
+      }
+
+      /* 修复JSON缩进问题 */
+      .code-block code {
+        display: block;
+        padding: 0;
+        background: transparent;
+        white-space: pre;
+      }
+
+      /* 标题样式 */
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+        color: var(--text);
+        text-align: center;
+      }
+
+      h2:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      /* 暗色模式 */
+      .dark .code-block {
+        background-color: #1a202c;
+      }
+
+      .dark .friend-card {
+        background-color: #1a202c;
+        border-color: #2d3748;
+      }
+      
+      /* 新增：申请按钮样式 */
+      .apply-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 2rem;
+        background: var(--primary);
+        color: white;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: var(--transition);
+        margin: 2rem auto 0;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+      }
+      
+      .apply-button:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      
+      .apply-button i {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+      
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png" />
+    <script src="../assets/css/main.css"></script>
+  </head>
+  <body class="antialiased bg-white dark:bg-neutral-950">
+    <SquareLines />
+    <Header />
+
+    <main class="pt-12 pb-16">
+      <div class="page-container">
+        <!-- 友链展示 -->
+        <section class="mb-16">
+          <h2>友链展示</h2>
+          <div class="friends-grid">
+            {friends.map(friend => (
+              <a 
+                href={friend.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="friend-card"
+              >
+                <img src={friend.avatar} alt={friend.name} />
+                <div>
+                  <h3>{friend.name}</h3>
+                  <p>{friend.desc}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <!-- 申请原则 -->
+        <section class="mb-16">
+          <h2>申请原则</h2>
+          <ul class="rule-list">
+            <li>半年内不失联</li>
+            <li>能周期性更新文章</li>
+            <li>合法不违规</li>
+          </ul>
+        </section>
+
+        <!-- 我的友链信息 - 已修复样式 -->
+        <section>
+          <h2>我的友链信息</h2>
+          <pre class="code-block"><code>{myFriendInfoStr}</code></pre>
+          
+          <!-- 新增：申请友链按钮 -->
+          <div class="button-container">
+            <a 
+              href="mailto:kemiaofriends@163.com?subject=友链申请&body=您好！我想申请与贵站交换友链，以下是相关信息：%0D%0A%0D%0A网站名称：%0D%0A网站地址：%0D%0A网站描述：%0D%0A%0D%0A期待您的回复！" 
+              class="apply-button"
+            >
+              <i class="fas fa-envelope"></i> 申请友链
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <Footer />
+    <script src="../assets/js/main.js"></script>
+    
+  </body>
+</html>
