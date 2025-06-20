@@ -1,18 +1,22 @@
 [
 	{
-		"name": "Home",
+		"name": "首页",
 		"url": "/"
 	},
 	{
-		"name": "Posts",
+		"name": "文章",
 		"url": "/posts"
 	},
 	{
-		"name": "Projects",
+		"name": "项目",
 		"url": "/projects"
 	},
 	{
-		"name": "About",
+	  "name": "友链",
+    "url": "/friends"
+	},
+	{
+		"name": "关于",
 		"url": "/about"
 	}
 ]
