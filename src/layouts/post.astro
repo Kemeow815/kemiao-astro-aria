@@ -1,5 +1,6 @@
 ---
 import Layout from "./main.astro";
+import Giscus from '../components/Giscus.astro';
 const { frontmatter } = Astro.props;
 ---
 
@@ -30,5 +31,15 @@ const { frontmatter } = Astro.props;
     >
       <slot />
     </article>
-  </main>
+    <Giscus
+    repo="Kemeow815/kemiao-astro-aria"
+    repoId="R_kgDOO8oW9g"
+    category="Announcements"
+    categoryId="DIC_kwDOO8oW9s4CrxMl"
+    mapping="title"
+    reactionsEnabled={true}
+    theme="preferred_color_scheme"
+  />
+  </main>    
+
 </Layout>
