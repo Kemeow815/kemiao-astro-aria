@@ -1,38 +1,38 @@
 [
 	{
-		"name": "TempMail.Best",
-		"description": "Best Temporary Email.",
-		"image": "/assets/images/projects/tempmail.best.png",
-		"url": "https://tempmail.best"
+		"name": "Astro-aria",
+		"description": "本博客源码",
+		"image": "/assets/images/cover.png",
+		"url": "https://github.com/ccbikai/astro-aria"
 	},
 	{
-		"name": "DNS.Surf",
-		"description": "Querying DNS Resolution Results in Different Regions Worldwide.",
-		"image": "/assets/images/projects/dns.surf.png",
-		"url": "https://dns.surf"
+		"name": "blog-v3",
+		"description": "克喵的主博客，基于纸鹿的开源主题的自用版本",
+		"image": "https://photo-kemiao.oss-cn-hangzhou.aliyuncs.com/img/blog-v3.webp-ys",
+		"url": "https://github.com/Kemeow815/blog-v3"
 	},
 	{
-		"name": "HTML.ZONE",
-		"description": "Web Toolbox.",
-		"image": "/assets/images/projects/html.zone.png",
-		"url": "https://html.zone"
+		"name": "Ke Miao Music",
+		"description": "基于张洪heo的项目自用版本，音乐网页端播放器",
+		"image": "https://photo-kemiao.oss-cn-hangzhou.aliyuncs.com/img/zhheo-music.webp-ys",
+		"url": "https://github.com/Kemeow815/HeoMusic"
 	},
 	{
-		"name": "Sink",
-		"description": "A Simple / Speedy / Secure Link Shortener with Analytics.",
-		"image": "/assets/images/projects/sink.cool.png",
-		"url": "https://sink.cool"
+		"name": "kemiao-news",
+		"description": "Elegant reading of real-time and hottest news",
+		"image": "https://photo-kemiao.oss-cn-hangzhou.aliyuncs.com/img/newsnow.webp-ys",
+		"url": "https://github.com/Kemeow815/kemiao-news"
+	},
+	{
+		"name": "克喵的站点状态监控面板",
+		"description": "优雅的站点状态监控面板",
+		"image": "https://photo-kemiao.oss-cn-hangzhou.aliyuncs.com/img/status.webp-ys",
+		"url": "https://github.com/Kemeow815/Uptime-Status-kemiao"
 	},
 	{
 		"name": "BroadcastChannel",
 		"description": "Turn your Telegram Channel into a MicroBlog.",
-		"image": "/assets/images/projects/broadcast-channel.png",
-		"url": "https://github.com/ccbikai/BroadcastChannel"
-	},
-	{
-		"name": "L(O*62).ONG",
-		"description": "Make your URL looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger",
-		"image": "/assets/images/projects/long.png",
-		"url": "https://loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.ong"
+		"image": "https://photo-kemiao.oss-cn-hangzhou.aliyuncs.com/img/shuoshuoTG.webp-ys",
+		"url": "https://github.com/Kemeow815/BroadcastChannel"
 	}
 ]
