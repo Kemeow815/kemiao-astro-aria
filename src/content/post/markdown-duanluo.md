@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/post.astro
-title: Markdowm 段落语法
+title: Markdown 段落语法
 description: Markdown 段落语法，如何创建段落以及最佳实践
 dateFormatted: Feb 13, 2025
 ---
